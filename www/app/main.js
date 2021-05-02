@@ -6,6 +6,7 @@ import { Route , Link , HashRouter as Router , browserHistory } from 'react-rout
 import { routerReducer , syncHistoryWithStore } from 'react-router-redux';
 //import createHistory from 'history/createHashHistory'
 import {createHashHistory} from 'history'
+//import {createHistory} from 'history'
 import reducer from './reducers/index.js';
 import App from './components/App.js';
 
@@ -22,7 +23,7 @@ const store = createStore(
 );
 
 render(
-	// <Provider store={store} history={createHistory()}>
+	//  <Provider store={store} history={createHistory()}>
 	<Provider store={store} history={createHashHistory()}>
 	  <Router>
 	  	<App></App>
