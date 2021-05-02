@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Filterbar from "./Filterbar";
 
 class Invest extends React.Component{
 
@@ -10,18 +11,9 @@ class Invest extends React.Component{
 				<div className="container">
 					<div className="filterBox">
 						<div className="row">
-							<div className="filterbar">
-								<div className="row">
-                                  <div className="col-lg-1">school</div>
-                                  <div className="col-lg-11">
-									  <a>school</a>
-									  <a>school</a>
-									  <a>school</a>
-									  <a>school</a>
-									  <a>school</a>
-								  </div>
-								</div>
-							</div>	
+                        <Filterbar options={["java","react","vue","angular"]}></Filterbar>	
+                        {/* <Filterbar></Filterbar>	 */}
+                        {/* <Filterbar></Filterbar>	 */}
 						</div>
 					</div>
 				</div>
