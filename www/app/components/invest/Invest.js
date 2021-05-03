@@ -19,6 +19,18 @@ class Invest extends React.Component{
 		 this.props.dispatch(addFilter(title,v))// add data to general filters
 	}
 
+	showFilterbar(propsobj){
+		var titleExist=false;
+		this.props.currentFilters.forEach((item)=>{
+			if(item.filterTitle==propsobj.title){
+				titleExist=true;
+				return;
+			}
+		})
+
+		return titleExist ? "" : <Filterbar {...propsobj}></Filterbar> 	
+	}
+
 	render(){
 
 		return (
@@ -26,11 +38,28 @@ class Invest extends React.Component{
 				<div className="container">
 					<div className="filterBox">
 						<div className="row">
-						<CurrentFilter currentFilters={this.props.currentFilters}></CurrentFilter>
-                        <Filterbar options={this.props.filters.schools} title="schools" onpick={(this.pickHandler).bind(this)}></Filterbar>	
-                        <Filterbar options={this.props.filters.types} title="types" onpick={(this.pickHandler).bind(this)}></Filterbar>	
-                        {/* <Filterbar></Filterbar>	 */}
-                        {/* <Filterbar></Filterbar>	 */}
+						<CurrentFilter dispatch={this.props.dispatch} currentFilters={this.props.currentFilters}></CurrentFilter>
+
+						{
+							this.showFilterbar({
+								 options:this.props.filters.schools,
+								 title:"schools",
+								 onpick:this.pickHandler.bind(this)
+							})
+						}
+						{
+							this.showFilterbar({
+								 options:this.props.filters.types,
+								 title:"types",
+								 onpick:this.pickHandler.bind(this)
+							})
+						}
+
+
+
+                        {/* <Filterbar options={this.props.filters.schools} title="schools" onpick={(this.pickHandler).bind(this)}></Filterbar>	 */}
+                        {/* <Filterbar options={this.props.filters.types} title="types" onpick={(this.pickHandler).bind(this)}></Filterbar>	 */}
+
 						</div>
 					</div>
 				</div>

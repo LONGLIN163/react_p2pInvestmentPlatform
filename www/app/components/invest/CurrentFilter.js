@@ -1,8 +1,14 @@
 import React from 'react';
+import {delFilter} from "../../actions/investActions";
+
 
 class CurrentFilter extends React.Component{
-	constructor({currentFilters}){
+	constructor({}){
 		super()
+	}
+
+	delme(filterTitle){
+        this.props.dispatch(delFilter(filterTitle))
 	}
 
 	showCurrentFilter(){
@@ -12,7 +18,10 @@ class CurrentFilter extends React.Component{
 			if(index!=0){
 				arr.push(<li key={arr.length} className="t"> & </li>)
 			}
-			arr.push(<li key={arr.length} >{item.filterTitle}: {item.v.join(" or ")}</li>)
+			arr.push(<li 
+				key={arr.length}
+				onClick={()=>{this.delme(item.filterTitle)}} 
+			>{item.filterTitle}: {item.v.join(" or ")}</li>)
 		})
         return(
 			<ul>

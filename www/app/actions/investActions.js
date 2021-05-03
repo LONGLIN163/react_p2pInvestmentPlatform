@@ -6,3 +6,6 @@ export const fetchInitData=()=>{return (dispatch)=>{
 export const addFilter=(title,v)=>{ 
     return {"type":"ADDFILTER",title,v}
 }
+export const delFilter=(title)=>{ 
+    return {"type":"DELFILTER",title}
+}

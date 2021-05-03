@@ -29,6 +29,14 @@ export default (state = initState , action) => {
 					{"filterTitle":action.title, "v":action.v}
 				]
 			}
+		case "DELFILTER":
+			return {
+				...state,
+				"currentFilters":state.currentFilters.filter((item)=>{
+					return item.filterTitle==action.title ? false : true;
+				})
+			}
+				
 
 		default:
 			break;
