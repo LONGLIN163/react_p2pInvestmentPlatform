@@ -4,7 +4,7 @@ let initState={
 	"filters":{
 		"schools":[],
 		"types":[],
-		"need":{"min":100,"max":12000}
+		"need":{"min":0,"max":5000}
 	},
 	"currentFilters":[
 		// {"filterTitle":"schools","v":["java","react"]},
@@ -15,6 +15,8 @@ let initState={
 
 
 export default (state = initState , action) => {
+	
+	console.log("action",action) 
 
 	switch (action.type) {
 		case "FETCHINITDATA":
@@ -42,5 +44,6 @@ export default (state = initState , action) => {
 		default:
 			break;
 	}
+	console.log("state",state)
 	return state;
 }

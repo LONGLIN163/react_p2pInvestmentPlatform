@@ -45,6 +45,7 @@ class Invest extends React.Component{
 
 
 	showRangebar(propsobj){
+		console.log("propsobj in range",propsobj)
 		var titleExist=false;
 		this.props.currentFilters.forEach((item)=>{
 			if(item.filterTitle==propsobj.title){
@@ -68,6 +69,8 @@ class Invest extends React.Component{
 	}
 
 	render(){
+
+		console.log("---------------",this.props)
 
 		return (
 			<section>
@@ -105,8 +108,10 @@ class Invest extends React.Component{
 									this.showRangebar({
 										title:"investment",
 										width:600,
-										min:100,
-										max:12000,
+										min:this.props.filters.need.min,
+										max:this.props.filters.need.max,
+										// min:0,
+										// max:54000,
 										onpick:this.pickHandler.bind(this)
 									})
 								}
@@ -143,7 +148,7 @@ class Invest extends React.Component{
 
 export default connect(
 	(state)=>{
-		console.log("state",state)
+		console.log("statehahaha",state)
 		return {
 			"filters":state.investReducer.filters,
 			"currentFilters":state.investReducer.currentFilters,

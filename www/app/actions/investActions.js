@@ -1,6 +1,13 @@
+// export const fetchInitData=()=>{return (dispatch)=>{
+//     $.get("/api/"+"filters.json", (data)=>{
+//         console.log("data",data)
+//         dispatch({"type":"FETCHINITDATA", "data" : data})
+//     })
+// } }
 export const fetchInitData=()=>{return (dispatch)=>{
-    $.get("/api/"+"filters.json", function(data){
-        dispatch({"type":"FETCHINITDATA", "data" : data})
+    $.get("/api/filters.json", function(data){
+        //console.log("data",data)
+        dispatch({"type":"FETCHINITDATA", data : data})
     })
 } }
 export const addFilter=(title,v)=>{ 
