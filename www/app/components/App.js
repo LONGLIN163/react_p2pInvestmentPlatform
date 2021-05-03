@@ -29,7 +29,7 @@ class App extends React.Component {
 	
 	render(){
 
-		console.log(this.state.current)
+		//console.log(this.state.current)
 
 		return (
 			<section>

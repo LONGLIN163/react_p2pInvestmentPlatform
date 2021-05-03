@@ -2,7 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Filterbar from "./Filterbar";
 
+import {fetchInitData} from "../../actions/investActions";
+
 class Invest extends React.Component{
+
+	constructor({dispatch}){
+		super()
+		dispatch(fetchInitData("school"));
+	}
 
 	pickHandler(title,v){
 		 console.log(title,v)
@@ -15,7 +22,7 @@ class Invest extends React.Component{
 				<div className="container">
 					<div className="filterBox">
 						<div className="row">
-                        <Filterbar options={["java","react","vue","angular"]} title="School" onpick={(this.pickHandler).bind(this)}></Filterbar>	
+                        <Filterbar options={this.props.schools} title="School" onpick={(this.pickHandler).bind(this)}></Filterbar>	
                         {/* <Filterbar></Filterbar>	 */}
                         {/* <Filterbar></Filterbar>	 */}
 						</div>
@@ -29,6 +36,9 @@ class Invest extends React.Component{
 
 export default connect(
 	(state)=>{
-      return state;
+		console.log(state)
+		return {
+			"schools":state.investReducer.filter.schools
+		}
 	}
 )(Invest);

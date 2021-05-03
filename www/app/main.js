@@ -7,16 +7,18 @@ import { routerReducer , syncHistoryWithStore } from 'react-router-redux';
 //import createHistory from 'history/createHashHistory'
 import {createHashHistory} from 'history'
 //import {createHistory} from 'history'
-import reducer from './reducers/index.js';
+import investReducer from './reducers/investReducer.js';
 import App from './components/App.js';
 
 import thunk from "redux-thunk";
 import { createLogger } from 'redux-logger'
 
 
+
+
 const store = createStore(
   combineReducers({
-    reducer,
+    investReducer,
     routing: routerReducer
   }),
   applyMiddleware(createLogger(),thunk)
