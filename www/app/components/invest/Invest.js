@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Filterbar from "./Filterbar";
 import CurrentFilter from "./CurrentFilter";
+import Range from "../common/range/Range"
 
 import {fetchInitData, addFilter} from "../../actions/investActions";
 
@@ -40,20 +41,44 @@ class Invest extends React.Component{
 						<div className="row">
 						<CurrentFilter dispatch={this.props.dispatch} currentFilters={this.props.currentFilters}></CurrentFilter>
 
-						{
-							this.showFilterbar({
-								 options:this.props.filters.schools,
-								 title:"schools",
-								 onpick:this.pickHandler.bind(this)
-							})
-						}
-						{
-							this.showFilterbar({
-								 options:this.props.filters.types,
-								 title:"types",
-								 onpick:this.pickHandler.bind(this)
-							})
-						}
+						<div className="row">
+							<div className="col-lg-2 filter_t">
+								Schools:
+							</div>
+							<div className="col-lg-10">
+								{
+									this.showFilterbar({
+										options:this.props.filters.schools,
+										title:"schools",
+										onpick:this.pickHandler.bind(this)
+									})
+								}
+							</div>
+						</div>
+
+						<div className="row">
+							<div className="col-lg-2 filter_t">
+							     Types:
+							</div>
+							<div className="col-lg-10">
+								{
+									this.showFilterbar({
+										options:this.props.filters.types,
+										title:"types",
+										onpick:this.pickHandler.bind(this)
+									})
+								}
+							</div>
+						</div>
+
+						<div className="row">
+							<div className="col-lg-2 filter_t">
+							     Fund demand:
+							</div>
+							<div className="col-lg-10">
+								<Range width={1000} min={100} max={12000}></Range>
+							</div>
+						</div>
 
 
 

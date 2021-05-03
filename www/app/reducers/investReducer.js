@@ -3,7 +3,8 @@ let initState={
 
 	"filters":{
 		"schools":[],
-		"types":[]
+		"types":[],
+		"need":{"min":0,"max":0}
 	},
 	"currentFilters":[
 		// {"filterTitle":"schools","v":["java","react"]},

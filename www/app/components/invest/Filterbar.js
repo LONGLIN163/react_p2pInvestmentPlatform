@@ -92,12 +92,7 @@ class Filterbar extends React.Component{
 		//console.log(this.props.options)
 		return (
 			<div className="filterbar">
-				<div className="row">
-					<div className="col-lg-1">{this.props.title}</div>
-					<div className="col-lg-11">
-                      {this.showShape()}	
-					</div>
-				</div>
+                {this.showShape()}	
 			</div>	
 
 		);
