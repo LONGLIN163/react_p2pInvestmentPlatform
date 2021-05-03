@@ -19,7 +19,7 @@ class Range extends Component{
         }
     }
 
-    showScaleLine(){
+    showScaleLine(){ 
         var scalelines=[];
         var length=this.bigUnitAmount*5+1; 
         for(var i=0;i<length;i++){
@@ -154,8 +154,11 @@ class Range extends Component{
                 </div>
                 <div className="scaleline">
                     {this.showScaleLine()}
-                  </div>
-            </div>
+                </div>
+                <input type="button" className="btn" value="confirm" onClick={()=>{
+                    this.props.onpick("need",this.state)
+                }}/>
+            </div> 
         )
     }
 }

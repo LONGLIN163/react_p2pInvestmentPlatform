@@ -29,7 +29,42 @@ class Invest extends React.Component{
 			}
 		})
 
-		return titleExist ? "" : <Filterbar {...propsobj}></Filterbar> 	
+		if(titleExist){
+			return ""
+		}else{
+			return <div>
+						<div className="col-lg-2 filter_t">
+						   {propsobj.title}:
+						</div>
+						<div className="col-lg-10">
+				           <Filterbar {...propsobj}></Filterbar> 
+						</div>
+			        </div>
+		} 	
+	}
+
+
+	showRangebar(propsobj){
+		var titleExist=false;
+		this.props.currentFilters.forEach((item)=>{
+			if(item.filterTitle==propsobj.title){
+				titleExist=true;
+				return;
+			}
+		})
+
+		if(titleExist){
+			return ""
+		}else{
+			return <div>
+						<div className="col-lg-2 filter_t">
+						   {propsobj.title}:
+						</div>
+						<div className="col-lg-10">
+						   <Range {...propsobj} onpick={this.pickHandler.bind(this)}></Range>
+						</div>
+			        </div>
+		} 	
 	}
 
 	render(){
@@ -42,10 +77,7 @@ class Invest extends React.Component{
 						<CurrentFilter dispatch={this.props.dispatch} currentFilters={this.props.currentFilters}></CurrentFilter>
 
 						<div className="row">
-							<div className="col-lg-2 filter_t">
-								Schools:
-							</div>
-							<div className="col-lg-10">
+
 								{
 									this.showFilterbar({
 										options:this.props.filters.schools,
@@ -53,14 +85,11 @@ class Invest extends React.Component{
 										onpick:this.pickHandler.bind(this)
 									})
 								}
-							</div>
+							
 						</div>
 
 						<div className="row">
-							<div className="col-lg-2 filter_t">
-							     Types:
-							</div>
-							<div className="col-lg-10">
+
 								{
 									this.showFilterbar({
 										options:this.props.filters.types,
@@ -68,22 +97,40 @@ class Invest extends React.Component{
 										onpick:this.pickHandler.bind(this)
 									})
 								}
-							</div>
+
 						</div>
 
 						<div className="row">
+						       {
+									this.showRangebar({
+										title:"investment",
+										width:600,
+										min:100,
+										max:12000,
+										onpick:this.pickHandler.bind(this)
+									})
+								}
+						</div>
+						{/* <div className="row">
+						       {
+									this.showRangebar({
+										title:"expected returns",
+										width:600,
+										min:100,
+										max:50000,
+										onpick:this.pickHandler.bind(this)
+									})
+								}
+						</div> */}
+
+                       {/* <div className="row">
 							<div className="col-lg-2 filter_t">
 							     Fund demand:
 							</div>
 							<div className="col-lg-10">
-								<Range width={1000} min={100} max={12000}></Range>
+								<Range width={600} min={100} max={1200} onpick={this.pickHandler.bind(this)}></Range>
 							</div>
-						</div>
-
-
-
-                        {/* <Filterbar options={this.props.filters.schools} title="schools" onpick={(this.pickHandler).bind(this)}></Filterbar>	 */}
-                        {/* <Filterbar options={this.props.filters.types} title="types" onpick={(this.pickHandler).bind(this)}></Filterbar>	 */}
+						</div> */}
 
 						</div>
 					</div>

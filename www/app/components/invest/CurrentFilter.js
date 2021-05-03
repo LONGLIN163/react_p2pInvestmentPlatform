@@ -18,10 +18,17 @@ class CurrentFilter extends React.Component{
 			if(index!=0){
 				arr.push(<li key={arr.length} className="t"> & </li>)
 			}
-			arr.push(<li 
-				key={arr.length}
-				onClick={()=>{this.delme(item.filterTitle)}} 
-			>{item.filterTitle}: {item.v.join(" or ")}</li>)
+			if(item.filterTitle=="schools" || item.filterTitle=="types"){
+				arr.push(<li 
+					key={arr.length}
+					onClick={()=>{this.delme(item.filterTitle)}} 
+				>{item.filterTitle}: {item.v.join(" or ")}</li>)
+			}else if(item.filterTitle=="need"){
+				arr.push(<li 
+					key={arr.length}
+					onClick={()=>{this.delme(item.filterTitle)}} 
+				>{item.filterTitle}: {item.v.scaleLeft}~{item.v.scaleRight}</li>)
+			}
 		})
         return(
 			<ul>
