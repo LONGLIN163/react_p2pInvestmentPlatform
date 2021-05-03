@@ -1,18 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Filterbar from "./Filterbar";
+import CurrentFilter from "./CurrentFilter";
 
-import {fetchInitData} from "../../actions/investActions";
+import {fetchInitData, addFilter} from "../../actions/investActions";
 
 class Invest extends React.Component{
 
 	constructor({dispatch}){
 		super()
-		dispatch(fetchInitData("school"));
+		dispatch(fetchInitData());
 	}
 
+	// recieve data from sub component
 	pickHandler(title,v){
-		 console.log(title,v)
+		 console.log("recieve data from sub compo:",title,v)
+		 //dispatch(addFilter(title,v))// add data to general filters
+		 this.props.dispatch(addFilter(title,v))// add data to general filters
 	}
 
 	render(){
@@ -22,7 +26,9 @@ class Invest extends React.Component{
 				<div className="container">
 					<div className="filterBox">
 						<div className="row">
-                        <Filterbar options={this.props.schools} title="School" onpick={(this.pickHandler).bind(this)}></Filterbar>	
+						<CurrentFilter currentFilters={this.props.currentFilters}></CurrentFilter>
+                        <Filterbar options={this.props.filters.schools} title="schools" onpick={(this.pickHandler).bind(this)}></Filterbar>	
+                        <Filterbar options={this.props.filters.types} title="types" onpick={(this.pickHandler).bind(this)}></Filterbar>	
                         {/* <Filterbar></Filterbar>	 */}
                         {/* <Filterbar></Filterbar>	 */}
 						</div>
@@ -36,9 +42,10 @@ class Invest extends React.Component{
 
 export default connect(
 	(state)=>{
-		console.log(state)
+		console.log("state",state)
 		return {
-			"schools":state.investReducer.filter.schools
+			"filters":state.investReducer.filters,
+			"currentFilters":state.investReducer.currentFilters,
 		}
 	}
 )(Invest);

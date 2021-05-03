@@ -11,7 +11,7 @@
 
     .multibtn{
         border: 1px solid #333;
-    }
+    }  
 
     label{
         margin-right: 10px;
@@ -19,5 +19,43 @@
 
     .radio, .checkbox{
         margin-top: 0;
+    }
+
+}
+
+.currentFilter{
+    overflow: hidden;
+    ul{
+        list-style: none;
+        overflow: hidden;
+        padding-left: 0;
+        li{
+            float: left;
+            padding: 4px 10px;
+            border: 1px solid red;
+            margin-right: 10px;
+            padding-right: 30px;
+            position: relative;
+
+            &.t{
+                border: none;
+            }
+            &::after{ 
+                content: "x";
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                right: 0;
+                top: 4px;
+                // font-size: 18px;
+                // line-height: 20px;
+            }
+            &.t::after{ 
+                content: none;
+            }
+
+           
+        }
+    
     }
 }

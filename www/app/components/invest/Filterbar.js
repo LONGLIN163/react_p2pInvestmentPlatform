@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 class Filterbar extends React.Component{
 	constructor(){
@@ -13,7 +12,7 @@ class Filterbar extends React.Component{
 
 	chooseradio(item){
          this.setState({v:[item]})
-		 //submitData()
+		 this.submitData([item])
 	}
 
 	choosecheckbox(){
@@ -24,17 +23,17 @@ class Filterbar extends React.Component{
 		this.setState({v:arr})
 	}
 
-	submitData(){
-       this.props.onpick(this.props.title,this.state.v)
+	submitData(arr){ // if arr is null, initall arr value with this.sate.v
+       this.props.onpick(this.props.title,arr)
 	}
 
 	//when state has been changed
-	componentDidUpdate(){
-		//console.log(this.state)
-		if(this.state.shape=="radio"){
-			this.submitData();
-		}
-	}
+	// componentDidUpdate(){
+	// 	//console.log(this.state)
+	// 	if(this.state.shape=="radio"){
+	// 		this.submitData();
+	// 	}
+	// }
 
 	showShape(){
 		if(this.state.shape=="radio"){
@@ -69,7 +68,7 @@ class Filterbar extends React.Component{
 						type="button" 
 						className="btn btn-success" 
 						value="confirm"
-						onClick={(this.submitData).bind(this)}
+						onClick={()=>{this.submitData(this.state.v)}}
 					/>
 					{" "}
 					<input 

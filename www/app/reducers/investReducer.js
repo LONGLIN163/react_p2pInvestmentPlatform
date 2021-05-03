@@ -1,9 +1,14 @@
 
 let initState={
 
-	"filter":{
-		"schools":[]
-	}
+	"filters":{
+		"schools":[],
+		"types":[]
+	},
+	"currentFilters":[
+		// {"filterTitle":"schools","v":["java","react"]},
+		// {"filterTitle":"types","v":["3+2B","2+0B"]}
+	]
 
 }
 
@@ -14,11 +19,17 @@ export default (state = initState , action) => {
 		case "FETCHINITDATA":
 			return {
                ...state,
-			   "filter":{
-				   ...state.filter,
-				   "schools":action.data.schools
-			   }
+			   "filters":action.data
 			}
+		case "ADDFILTER":
+			return {
+				...state,
+				"currentFilters":[
+					...state.currentFilters,
+					{"filterTitle":action.title, "v":action.v}
+				]
+			}
+
 		default:
 			break;
 	}
