@@ -13,8 +13,7 @@ class Filterbar extends React.Component{
 
 	chooseradio(item){
          this.setState({v:[item]})
-
-		 this.submitData()
+		 //submitData()
 	}
 
 	choosecheckbox(){
@@ -26,11 +25,15 @@ class Filterbar extends React.Component{
 	}
 
 	submitData(){
-
+       this.props.onpick(this.props.title,this.state.v)
 	}
 
+	//when state has been changed
 	componentDidUpdate(){
-		console.log(this.state)
+		//console.log(this.state)
+		if(this.state.shape=="radio"){
+			this.submitData();
+		}
 	}
 
 	showShape(){
@@ -66,10 +69,20 @@ class Filterbar extends React.Component{
 						type="button" 
 						className="btn btn-success" 
 						value="confirm"
-						onClick={(this.submitData)}
+						onClick={(this.submitData).bind(this)}
 					/>
 					{" "}
-					<input type="button" className="btn" value="cancel"/>
+					<input 
+						type="button" 
+						className="btn" 
+						value="cancel"
+						onClick={()=>{
+							this.setState({
+								shape:"radio",
+								v:[]
+							})
+						}}
+					/>
 				</div>
 			)
 
@@ -81,7 +94,7 @@ class Filterbar extends React.Component{
 		return (
 			<div className="filterbar">
 				<div className="row">
-					<div className="col-lg-1">school</div>
+					<div className="col-lg-1">{this.props.title}</div>
 					<div className="col-lg-11">
                       {this.showShape()}	
 					</div>
