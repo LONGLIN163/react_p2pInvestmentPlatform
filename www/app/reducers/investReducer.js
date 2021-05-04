@@ -4,7 +4,14 @@ let initState={
 	"filters":{
 		"schools":[],
 		"types":[],
-		"need":{"min":0,"max":5000}
+		"need":{"min":0,"max":12000},
+		"date":{
+			"byear":2000,
+			"bmonth":1,
+			"bday":8,
+			"eyear":2004,
+			"emonth":2,
+			"eday":5}
 	},
 	"currentFilters":[
 		// {"filterTitle":"schools","v":["java","react"]},
@@ -30,7 +37,10 @@ export default (state = initState , action) => {
 				"currentFilters":[
 					...state.currentFilters,
 					{"filterTitle":action.title, "v":action.v}
-				]
+				],
+				// "filters":{
+				// 	[action.nicktitle] : action.v,
+				// }
 			}
 		case "DELFILTER":
 			return {

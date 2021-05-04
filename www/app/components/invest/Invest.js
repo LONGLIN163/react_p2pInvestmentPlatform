@@ -130,12 +130,14 @@ class Invest extends React.Component{
 						<div className="row">
 						       {
 									this.showRangebar({
-										title:"investment",
+										title:"need",
 										width:600,
-										min:this.props.filters.need.min,
-										max:this.props.filters.need.max,
-										// min:0,
-										// max:54000,
+										// min:this.props.filters.need.min,
+										// max:this.props.filters.need.max,
+										// scaleLeft:this.props.filters.need.scaleLeft,
+										// scaleRight:this.props.filters.need.scaleRight,
+										min:0,
+										max:54000,
 										onpick:this.pickHandler.bind(this)
 									})
 								}
@@ -144,30 +146,16 @@ class Invest extends React.Component{
 						         {
 									this.showBECalendar({
 										title:"date",
-										onpick:(by,bm,bd,ey,em,ed)=>{console.log(by,bm,bd,ey,em,ed)}
+										onpick: this.pickHandler.bind(this),
+										// byear:  this.props.filters.date.byear,
+										// bmonth: this.props.filters.date.bmonth,
+										// bday:   this.props.filters.date.bday,
+										// eyear:  this.props.filters.date.eyear,
+										// emonth: this.props.filters.date.emonth,
+										// eday:   this.props.filters.date.eday
 									})
 								}
 						</div>
-						{/* <div className="row">
-						       {
-									this.showRangebar({
-										title:"expected returns",
-										width:600,
-										min:100,
-										max:50000,
-										onpick:this.pickHandler.bind(this)
-									})
-								}
-						</div> */}
-
-                       {/* <div className="row">
-							<div className="col-lg-2 filter_t">
-							     Fund demand:
-							</div>
-							<div className="col-lg-10">
-								<Range width={600} min={100} max={1200} onpick={this.pickHandler.bind(this)}></Range>
-							</div>
-						</div> */}
 
 						</div>
 					</div>

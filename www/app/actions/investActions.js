@@ -10,8 +10,8 @@ export const fetchInitData=()=>{return (dispatch)=>{
         dispatch({"type":"FETCHINITDATA", data : data})
     })
 } }
-export const addFilter=(title,v)=>{ 
-    return {"type":"ADDFILTER",title,v}
+export const addFilter=(title,v,nicktitle)=>{ 
+    return {"type":"ADDFILTER",title,v,nicktitle}
 }
 export const delFilter=(title)=>{ 
     return {"type":"DELFILTER",title}

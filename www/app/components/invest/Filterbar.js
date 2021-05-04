@@ -24,7 +24,7 @@ class Filterbar extends React.Component{
 	}
 
 	submitData(arr){ // if arr is null, initall arr value with this.sate.v
-       this.props.onpick(this.props.title,arr)
+       this.props.onpick(this.props.title,arr,this.props.nicktitle)
 	}
 
 	//when state has been changed

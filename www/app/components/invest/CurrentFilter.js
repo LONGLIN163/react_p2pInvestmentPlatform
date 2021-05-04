@@ -28,6 +28,11 @@ class CurrentFilter extends React.Component{
 					key={arr.length}
 					onClick={()=>{this.delme(item.filterTitle)}} 
 				>{item.filterTitle}: {item.v.scaleLeft}~{item.v.scaleRight}</li>)
+			}else if(item.filterTitle=="date"){
+				arr.push(<li 
+					key={arr.length}
+					onClick={()=>{this.delme(item.filterTitle)}} 
+				>{item.filterTitle}: {item.v.byear}.{item.v.bmonth}.{item.v.bday}~{item.v.eyear}.{item.v.emonth}.{item.v.eday}</li>)
 			}
 		})
         return(

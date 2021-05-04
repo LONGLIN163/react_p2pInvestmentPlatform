@@ -33,6 +33,7 @@ class Range extends Component{
         console.log(min,max)
 
         this.state={
+
             scaleLeft:min,
             scaleRight:max
         }
@@ -43,7 +44,7 @@ class Range extends Component{
     //       console.log("nextProps",nextProps)
     //       this.setState({
     //         scaleLeft:nextProps.min,
-    //         scaleRight:nextProps.max
+    //         scaleRight:nextProps.max,
     //       })
 
     //       //this.perbigUnitNumber = parseInt((nextProps.max-nextProps.min)/this.bigUnitAmount); // every big scale`s value

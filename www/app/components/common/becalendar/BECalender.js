@@ -4,11 +4,14 @@ import Calendar from "./Calendar"
 
 
 class BECalender extends Component{
-    constructor(){
+    constructor({byear,bmonth,bday,eyear,emonth,eday}){
         super()
         var d=new Date();
         this.state={
-            
+            // byear,bmonth,bday,eyear,emonth,eday,
+            // bshowCalendar:false,  
+            // eshowCalendar:false, 
+            // showChooseBox:false
             byear: d.getFullYear(),
             bmonth:d.getMonth()+1,
             bday:  d.getDate(),
@@ -17,6 +20,7 @@ class BECalender extends Component{
             eyear:d.getFullYear(),
             emonth:d.getMonth()+1,
             eday:d.getDate(),
+            
             eshowCalendar:false, 
 
             showChooseBox:false
@@ -94,6 +98,7 @@ class BECalender extends Component{
     }
 
     // shouldComponentUpdate(nextProps, nextState){
+    /*
     componentWillUpdate(props, state){
         //console.log("state",state)
         this.props.onpick(
@@ -104,12 +109,28 @@ class BECalender extends Component{
         this.state.emonth,
         this.state.eday)
 
+     }*/
+
+     onpick(){
+        this.props.onpick(
+        this.props.title,{
+            byear:this.state.byear,
+            bmonth:this.state.bmonth,
+            bday:this.state.bday,
+            eyear:this.state.eyear,
+            emonth:this.state.emonth,
+            eday:this.state.eday
+          },
+          this.props.nicktitle
+        )
      }
 
     showChooseBox(){
        return <div className="chooseBox">
-                    <input type="button" value="confirm" className="submitbtn" onClick={()=>{this.setState({ showChooseBox:false })}}/>
-                    {/* <input type="button" value="cancel" className="concelbtn"/> */}
+                    <input type="button" value="confirm" className="submitbtn" onClick={()=>{
+                        this.setState({ showChooseBox:false });
+                        this.onpick();
+                    }}/>
                     <div className="begin">
                          start:
                          <div className="begin_result result">
