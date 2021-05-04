@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Filterbar from "./Filterbar";
 import CurrentFilter from "./CurrentFilter";
-import Range from "../common/range/Range"
+import Range from "../common/range/Range";
+import BECalender from "../common/becalendar/BECalender"
 
 import {fetchInitData, addFilter} from "../../actions/investActions";
 
@@ -45,7 +46,7 @@ class Invest extends React.Component{
 
 
 	showRangebar(propsobj){
-		console.log("propsobj in range",propsobj)
+		//console.log("propsobj in range",propsobj)
 		var titleExist=false;
 		this.props.currentFilters.forEach((item)=>{
 			if(item.filterTitle==propsobj.title){
@@ -67,11 +68,34 @@ class Invest extends React.Component{
 			        </div>
 		} 	
 	}
+	showBECalendar(propsobj){
+		//console.log("propsobj in date",propsobj)
+		var titleExist=false;
+		this.props.currentFilters.forEach((item)=>{
+			if(item.filterTitle==propsobj.title){
+				titleExist=true;
+				return;
+			}
+		})
+
+		if(titleExist){
+			return ""
+		}else{
+			return <div>
+						<div className="col-lg-2 filter_t">
+						   {propsobj.title}:
+						</div>
+						<div className="col-lg-10">
+						<BECalender {...propsobj}/>						
+						</div>
+			        </div>
+		} 	
+	}
 
 	render(){
 
 		console.log("---------------",this.props)
-
+		var d=new Date();
 		return (
 			<section>
 				<div className="container">
@@ -113,6 +137,14 @@ class Invest extends React.Component{
 										// min:0,
 										// max:54000,
 										onpick:this.pickHandler.bind(this)
+									})
+								}
+						</div>
+						<div className="row" style={{"position":"relative"}}>
+						         {
+									this.showBECalendar({
+										title:"date",
+										onpick:(by,bm,bd,ey,em,ed)=>{console.log(by,bm,bd,ey,em,ed)}
 									})
 								}
 						</div>
