@@ -94,6 +94,7 @@ class Invest extends React.Component{
 		} 	
 	}
 
+
 	render(){
 
 		console.log("---------------",this.props)
@@ -162,8 +163,6 @@ class Invest extends React.Component{
 						</div>
 					</div>
 					<div className="databox">
-						<hr/>
-						<br/>
 						<DataBox></DataBox>
 					</div>
 				</div>

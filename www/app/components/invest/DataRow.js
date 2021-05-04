@@ -9,8 +9,11 @@ class DataRow extends React.Component{
         let data=this.props.data;
 		return (
 			<tr className="datarow">
-				<td>{data.name}</td>
-				<td>{data.school}</td>
+				{this.props.tablecol.map((item,index)=>{
+					if(item.show){
+						return <td key={index}>{data[item.fieldname]}</td>
+					}
+				})}
 			</tr>	
 
 		);
