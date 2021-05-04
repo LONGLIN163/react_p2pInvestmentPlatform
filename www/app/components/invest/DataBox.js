@@ -9,7 +9,7 @@ class DataBox extends React.Component{
 		super()
 
 		this.state={
-			settableboxshow:true,
+			settableboxshow:false,
 			tablecol : [
 				{"fieldname" : "name" 	, "outerfieldname" : "Name" , "show" : true},
 				{"fieldname" : "school" , "outerfieldname" : "School" , "show" : true},
@@ -32,7 +32,20 @@ class DataBox extends React.Component{
 		<SetTableBox 
 		   setSetTableBoxShow={(this.setSetTableBoxShow).bind(this)}
 		   tablecol={this.state.tablecol}
+		   onsubmit = {(this.submithandler).bind(this)}
 		></SetTableBox> : ""
+	}
+
+	// receive data from Settablebox,the hide SetTableBox
+	submithandler(data){
+		console.log("receive data from SetTableBox---",data)
+		this.setState({"tablecol" : this.state.tablecol.map((obj)=>{
+			return {
+				...obj,
+				"show" : data[obj.outerfieldname] // change current state.tablecol
+			}
+		})});
+		this.setSetTableBoxShow(false); // close
 	}
 
 	setSetTableBoxShow(booleanvalue){
