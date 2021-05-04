@@ -4,8 +4,9 @@ module.exports = {
     mode: "development", // ***if dont set mode, it would not translate es6 to es5***
     entry: "./www/app/main",
     output: {
-        path: path.resolve(__dirname, "/www/dist"),
-        publicPath: '/temporary/',
+        path: path.resolve(__dirname, "./www/dist"),
+        //*****developement*** */
+        //publicPath: '/temporary/',
         filename: 'bundle.js'
     },
     module: { //mount all needed loaders here
@@ -31,5 +32,6 @@ module.exports = {
         //     ],
         // }
       ]
-    }
+    },
+    watch:true
 };
