@@ -2,16 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Filterbar from "./Filterbar";
 import CurrentFilter from "./CurrentFilter";
+import DataBox from "./DataBox";
 import Range from "../common/range/Range";
 import BECalender from "../common/becalendar/BECalender"
 
-import {fetchInitData, addFilter} from "../../actions/investActions";
+import {fetchInitFilter, addFilter,fetchData} from "../../actions/investActions";
 
 class Invest extends React.Component{
 
 	constructor({dispatch}){
 		super()
-		dispatch(fetchInitData());
+		dispatch(fetchInitFilter());
+		dispatch(fetchData());
 	}
 
 	// recieve data from sub component
@@ -158,6 +160,11 @@ class Invest extends React.Component{
 						</div>
 
 						</div>
+					</div>
+					<div className="databox">
+						<hr/>
+						<br/>
+						<DataBox></DataBox>
 					</div>
 				</div>
 			</section>

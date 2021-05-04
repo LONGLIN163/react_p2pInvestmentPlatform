@@ -16,7 +16,8 @@ let initState={
 	"currentFilters":[
 		// {"filterTitle":"schools","v":["java","react"]},
 		// {"filterTitle":"types","v":["3+2B","2+0B"]}
-	]
+	],
+	"data":[]
 
 }
 
@@ -26,10 +27,15 @@ export default (state = initState , action) => {
 	console.log("action",action) 
 
 	switch (action.type) {
-		case "FETCHINITDATA":
+		case "FETCHINITFILTER":
 			return {
                ...state,
 			   "filters":action.data
+			}
+		case "FETCHDATA":
+			return {
+               ...state,
+			   "data":action.data
 			}
 		case "ADDFILTER":
 			return {

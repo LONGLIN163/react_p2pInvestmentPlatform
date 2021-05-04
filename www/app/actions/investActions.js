@@ -4,10 +4,16 @@
 //         dispatch({"type":"FETCHINITDATA", "data" : data})
 //     })
 // } }
-export const fetchInitData=()=>{return (dispatch)=>{
+export const fetchInitFilter=()=>{return (dispatch)=>{
     $.get("/api/filters.json", function(data){
         //console.log("data",data)
-        dispatch({"type":"FETCHINITDATA", data : data})
+        dispatch({"type":"FETCHINITFILTER", data : data})
+    })
+} }
+export const fetchData=()=>{return (dispatch)=>{
+    $.get("/api/data.json", function(data){
+        //console.log("data",data)
+        dispatch({"type":"FETCHDATA", data : data.results})
     })
 } }
 export const addFilter=(title,v,nicktitle)=>{ 
