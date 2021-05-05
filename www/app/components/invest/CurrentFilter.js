@@ -48,7 +48,7 @@ class CurrentFilter extends React.Component{
 			<div className="currentFilter">
 				{/* {JSON.stringify(this.props.currentFilters)} */}
 				<div className="row">
-					<div className="col-lg-1">
+					<div className="col-lg-1 currentFilterTitle">
 				        filters:
 					</div>
 					<div className="col-lg-11">

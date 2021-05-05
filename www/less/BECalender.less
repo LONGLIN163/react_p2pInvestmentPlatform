@@ -6,15 +6,16 @@
 
 @{BEClander_box_classname}{
     margin: 10px;
+    margin-top: 20px;
     width: @resultWidth;
     position: relative;
     .result{
         width: @resultWidth;
         height: @height;
         border: 1px solid @borderColor;
-        border-radius: 5px;
+        //border-radius: 5px;
         text-align:  left;
-        line-height: @height - 2px;
+        line-height: @height - 1px;
         padding-left: 10px;
         box-sizing: border-box;
         position: relative;
@@ -23,18 +24,22 @@
     }
     .result span.calendarBtn{
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 40px;
-        height: @height - 2px;
-        border-left: 1px solid @borderColor;
+        top: -1px;
+        right: -1px;
+        width: 42px;
+        height: @height - 1px;
+        border-left: 2px solid #5cb85c;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+        //border-radius: 0px 3px 3px 0px
+        z-index: -100;
 
         &::before{
             position: absolute;
             top: 5px;
             left: 11px;
             font-size: 14px;
-            color: #BDBDBD;
+            color: #fff;
         }
 
     }
@@ -79,19 +84,20 @@
             width: 30%;
             text-align: center;
             line-height: 70px;
-            color: orange;
+            color: #e81d82;
         }
 
         @smallResultH:24px;
         @smallResultW:180px;
         .result{
             width:  @smallResultW;
-            height: @smallResultH;
+            height: @smallResultH - 1px;
 
             span.calendarBtn{
                 width: 30px;
                 font-size: 12px;
                 height: @smallResultH - 2px;
+                color: #fff;
 
                 &::before{
                     position: absolute;
@@ -129,9 +135,9 @@
    .leftBtn{
         position: absolute;
         left: 20px;
-        top: 20px;
+        top: 23px;
         width:16px;
-        height:16px;
+        height:10px;
         background-image: url(../images/ll.png);
         background-size: contain;
    }
@@ -139,9 +145,9 @@
    .rightBtn{
         position: absolute;
         right: 20px;
-        top: 20px;
+        top: 23px;
         width:16px;
-        height:16px;
+        height:10px;
         background-image: url(../images/rr.png);
         background-size: contain;
    }
@@ -151,7 +157,7 @@
    }
 
    td{
-       padding: 4px 12px;
+       padding: 4px 4px;
        width: 14px;
        height: 16px;
        font-size: 14px;
@@ -163,7 +169,7 @@
        }
     
        &.cur{
-           background-color: rgb(139, 175, 163);
+           background-color: #e81d82;
        }
 
        &:hover{
@@ -212,22 +218,22 @@
                   }
                }
 
-               .ll{
+            .ll{
                 position: absolute;
-                left: 1px;
-                top: 14px;
-                width:16px;
-                height:16px;
+                left: 4px;
+                top: 19px;
+                width: 12px;
+                height: 8px;
                 background-image: url(../images/ll.png);
                 background-size: contain;
             }
 
             .rr{
                 position: absolute;
-                right: 1px;
-                top: 14px;
-                width:16px;
-                height:16px;
+                right: 4px;
+                top: 19px;
+                width: 12px;
+                height: 8px;
                 background-image: url(../images/rr.png);
                 background-size: contain;
             }
@@ -247,8 +253,8 @@
                     }
 
                     .cur{
-                        border: 1px solid orange;
-                        background-color: gold;
+                        //border: 1px solid orange;
+                        background-color: #e81d82;
                     }
                 }
             }

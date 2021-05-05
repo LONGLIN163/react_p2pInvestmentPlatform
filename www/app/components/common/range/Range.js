@@ -194,7 +194,7 @@ class Range extends Component{
                 <div className="scaleline">
                     {this.showScaleLine()}
                 </div>
-                <input type="button" className="btn" value="confirm" onClick={()=>{
+                <input type="button" className="btn btn-success" value="confirm" onClick={()=>{
                     this.props.onpick("need",this.state)
                 }}/>
             </div> 

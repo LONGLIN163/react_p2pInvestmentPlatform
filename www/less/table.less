@@ -1,16 +1,16 @@
 table,tr,td,th{
     border: 1px solid #000;
-    font-size: 20px;
+    //font-size: 12px;
     text-align: center;
 }
 
 table{
     width: 100%;
     tr:nth-child(2n){
-        background-color: rgb(214, 218, 216);
+        background-color: #6cc3c3;
     }
     tr:nth-child(2n+1){
-        background-color: rgb(151, 212, 192);
+        background-color: #b4b5b6;
     }
     th{
         text-align: center;
@@ -30,7 +30,7 @@ table{
 	@h : 200px;
 	.innerbox{
 		width:@w ;
-		height:@h;
+		//height:@h;
 		background-color: white;
 		position: absolute;
 		top:50%;
@@ -38,9 +38,14 @@ table{
 		margin-left: @w / -2;
 		margin-top: @h / -2;
 		display: none;
+		border-radius: 10px;
 		//z-index: 111111;
 
         padding: 10px;
+
+		.button{
+			margin: 0 10px !important;
+		}
 
 		.closebtn{
 			position: absolute;
@@ -52,9 +57,21 @@ table{
 			color:white;
 			border-radius: 50%;
 			text-align: center;
-			font-size: 20px;
+			//font-size: 14px;
 			line-height: 20px;
 		}
 
     }
+}
+
+.databox{
+	.text-right{
+		.btn{
+			margin-bottom: 10px;
+		}
+	}
+	.searchresult{
+		position: relative;
+		top: 30px;
+	}
 }

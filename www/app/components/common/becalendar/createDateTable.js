@@ -55,6 +55,5 @@ const createDateTable=(year,month)=>{
 
 
 }
-//console.log(createDateTable(2021,4))
 
 export default createDateTable;

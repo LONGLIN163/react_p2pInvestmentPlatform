@@ -17,12 +17,6 @@ render(
             day:  d.getDate()
         }}  
 
-        // latest={{
-        //     year: 2021,
-        //     month:5,
-        //     day:  5
-        // }}
-
         />
     </div>,
     document.getElementById("container")

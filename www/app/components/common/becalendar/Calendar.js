@@ -149,7 +149,7 @@ class Calendar extends Component{
         return(
             <div className="calendarChooser">
                 <h4 onClick={()=>{this.setState({showPicker : true})}}>
-                    <a>Last Month</a>
+                    {/* <a>Last Month</a> */}
                     {this.state.year} - {this.state.month}
                     {/* <a onClick={(this.goNextMonth).bind(this)}>Next Month</a> */}
                 </h4>

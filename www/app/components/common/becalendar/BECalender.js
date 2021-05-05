@@ -76,7 +76,7 @@ class BECalender extends Component{
 		var date2 = new Date(this.state.eyear,this.state.emonth,this.state.eday);
 		var gap = date2 - date1;
 
-		var gday = gap / 1000 / 60 / 60 / 24;
+		var gday = parseInt(gap / 1000 / 60 / 60 / 24);
 
 		return <div>{gday}days</div>
     }
@@ -127,7 +127,7 @@ class BECalender extends Component{
 
     showChooseBox(){
        return <div className="chooseBox">
-                    <input type="button" value="confirm" className="submitbtn" onClick={()=>{
+                    <input type="button" value="confirm" className="submitbtn btn-success" onClick={()=>{
                         this.setState({ showChooseBox:false });
                         this.onpick();
                     }}/>
@@ -164,7 +164,7 @@ class BECalender extends Component{
         return(
             <div className="BECalender" ref="BECalender">
                 <div className="result" onClick={()=>{this.setState({ showChooseBox:!this.state.showChooseBox })}}>
-                {this.state.byear}/{this.state.bmonth}/{this.state.bday}-{this.state.eyear}/{this.state.emonth}/{this.state.eday}
+                {this.state.byear}.{this.state.bmonth}.{this.state.bday}-{this.state.eyear}.{this.state.emonth}.{this.state.eday}
                     <span className="glyphicon glyphicon-calendar calendarBtn"></span>
                 </div>
                 

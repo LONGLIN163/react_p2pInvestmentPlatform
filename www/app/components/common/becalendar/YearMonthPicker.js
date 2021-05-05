@@ -5,10 +5,6 @@ import "../../../../assets/jquery-mousewheel/jquery.mousewheel"
 
 class YearMonthPicker extends Component{
 
-    // static propTypes = {
-    //     onpick: PropTypes.func.isRequired
-    // };
-
     constructor({onpick,year,month}){
         super()
         this.state={
