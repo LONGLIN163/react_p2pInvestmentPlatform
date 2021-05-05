@@ -35,7 +35,7 @@ export default (state = initState , action) => {
 		case "FETCHDATA":
 			return {
                ...state,
-			   "data":action.data
+			   "data":action.data.results
 			}
 		case "ADDFILTER":
 			return {
@@ -44,6 +44,7 @@ export default (state = initState , action) => {
 					...state.currentFilters,
 					{"filterTitle":action.title, "v":action.v}
 				],
+				"data":action.data.results
 				// "filters":{
 				// 	[action.nicktitle] : action.v,
 				// }
@@ -53,7 +54,8 @@ export default (state = initState , action) => {
 				...state,
 				"currentFilters":state.currentFilters.filter((item)=>{
 					return item.filterTitle==action.title ? false : true;
-				})
+				}),
+				"data":action.data.results
 			}
 				
 
