@@ -4,8 +4,14 @@
   "description": "this is a component",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --content-base ./www --open",
+    "heroku-prebuild": "npm install --only=dev",
+    "start": "node app.js",
+    "dev": "webpack serve --content-base ./www --open",
     "build": "webpack"
+  },
+  "engines": {
+    "node": "v10.16.3",
+    "npm": "6.9.0"
   },
   "author": "",
   "license": "ISC",
@@ -33,7 +39,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "style-loader": "^2.0.0",
-    "webpack": "^5.35.0",
+    "webpack": "^5.36.2",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },
