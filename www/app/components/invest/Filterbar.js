@@ -48,7 +48,7 @@ class Filterbar extends React.Component{
 							>{item}</a>
 						}) 
 					}
-					<a className="multibtn" onClick={()=>{
+					<a className="multibtn btn btn-success" onClick={()=>{
 						this.setState({"shape":"checkbox"})
 					}}>checkbox+</a>
 				</div>

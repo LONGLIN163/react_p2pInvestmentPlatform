@@ -1,5 +1,6 @@
+@generalColor:#333;
 .filterbar{
-    margin-top: 20px;
+    margin-top: 10px;
     a{
         margin-right: 10px;
         padding: 4px 6px;
@@ -9,9 +10,14 @@
         border: 1px solid orange;
     }
 
-    .multibtn{
-        border: 1px solid #333;
-    }  
+    // .multibtn{
+    //     //border: 1px solid @generalColor;
+    //     border-radius: 5px;
+    //     padding:6px 12px;
+    //     background-color: #5cb85c;
+    //     color: #fff;
+    //     height: 15px;
+    // }  
 
     label{
         margin-right: 10px;
@@ -25,6 +31,9 @@
 
 .filter_t{
     line-height: 50px;
+    .title{
+        text-transform:capitalize
+    }
 }
 
 .currentFilter{
@@ -61,5 +70,15 @@
            
         }
     
+    }
+
+    .currentFilterTitle{
+        text-transform:capitalize
+    }
+}
+
+.filterBox{
+    .row{
+        margin-top: 10px;
     }
 }

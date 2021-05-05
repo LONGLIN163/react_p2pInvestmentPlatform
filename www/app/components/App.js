@@ -1,6 +1,6 @@
 import React from 'react';
 import Invest from "./invest/Invest.js";
-import Home from "./home/Home.js";
+import News from "./News/News.js";
 import { Route , Link } from 'react-router-dom';
 
 
@@ -9,7 +9,7 @@ class App extends React.Component {
 	constructor(){
 		super()
 		this.state={
-			homeActive:true,
+			newsActive:true,
 			investActive:false
 		}
 
@@ -33,7 +33,7 @@ class App extends React.Component {
 
 		return (
 			<section>
-				<nav className="navbar navbar-default">
+				<nav className="navbar navbar-inverse">
 					<div className="container-fluid">
 						<div className="navbar-header">
 						<button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -47,27 +47,27 @@ class App extends React.Component {
 	
 						<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul className="nav navbar-nav">
-								<li className={this.state.homeActive == true ? "active" : ""} onClick={()=>{this.setState({
-									homeActive:true,
-									investActive:false
-								})}}><Link to="/">Home<span className="sr-only"></span></Link></li>
+								<li className={this.state.newsActive == true ? "active" : ""} onClick={()=>{this.setState({
+									investActive:false,
+									newsActive:true
+								})}}><Link to="/">Invest<span className="sr-only"></span></Link></li>
 								<li className={this.state.investActive == true ? "active" : ""} onClick={()=>{this.setState({
-									investActive:true,
-									homeActive:false
-								})}}><Link to="/invest">Invest<span className="sr-only"></span></Link></li>
+									newsActive:false,
+									investActive:true
+								})}}><Link to="/news">News<span className="sr-only"></span></Link></li>
 								{/* <li className={this.testactive("")}><Link to="/">Home<span className="sr-only"></span></Link></li>
 								<li className={this.testactive("invest")}><Link to="/invest">Invest<span className="sr-only"></span></Link></li> */}
 
 							</ul>
 							<ul className="nav navbar-nav navbar-right">
-								<li><a href="#">welcome</a></li>
+								<li><a href="#">Welcome ******</a></li>
 							</ul>
 						</div>
 					   </div>
 					</nav>
 				<section className="main">
-					<Route exact path="/" component={Home}></Route>
-					<Route path="/invest" component={Invest}></Route>
+					<Route exact path="/" component={Invest}></Route>
+					<Route path="/news" component={News}></Route>
 				</section>
 	
 			</section>

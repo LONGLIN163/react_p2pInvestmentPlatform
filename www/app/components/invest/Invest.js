@@ -36,10 +36,12 @@ class Invest extends React.Component{
 			return ""
 		}else{
 			return <div>
-						<div className="col-lg-2 filter_t">
-						   {propsobj.title}:
+						<div className="col-lg-1 filter_t">
+							<div className="title">
+						       {propsobj.title}:
+							</div>
 						</div>
-						<div className="col-lg-10">
+						<div className="col-lg-11">
 				           <Filterbar {...propsobj}></Filterbar> 
 						</div>
 			        </div>
@@ -61,10 +63,13 @@ class Invest extends React.Component{
 			return ""
 		}else{
 			return <div>
-						<div className="col-lg-2 filter_t">
-						   {propsobj.title}:
+						<div className="col-lg-1 filter_t">
+						<div className="title">
+						       {propsobj.title}:
 						</div>
-						<div className="col-lg-10">
+						   
+						</div>
+						<div className="col-lg-11">
 						   <Range {...propsobj} onpick={this.pickHandler.bind(this)}></Range>
 						</div>
 			        </div>
@@ -84,10 +89,12 @@ class Invest extends React.Component{
 			return ""
 		}else{
 			return <div>
-						<div className="col-lg-2 filter_t">
-						   {propsobj.title}:
+						<div className="col-lg-1 filter_t">
+						<div className="title">
+						       {propsobj.title}:
 						</div>
-						<div className="col-lg-10">
+						</div>
+						<div className="col-lg-11">
 						<BECalender {...propsobj}/>						
 						</div>
 			        </div>
@@ -96,8 +103,6 @@ class Invest extends React.Component{
 
 
 	render(){
-
-		console.log("---------------",this.props)
 		var d=new Date();
 		return (
 			<section>

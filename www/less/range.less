@@ -1,4 +1,4 @@
-
+@rangecolor:#e81d82;
 .range{
     padding: 20px;
     //border: 1px solid black;
@@ -12,7 +12,7 @@
     }
 
     .bar{
-        height: 16px;
+        height: 8px;
         background-color: rgb(189, 189, 189);   
         border-radius: 5px;  
         position: relative;
@@ -22,9 +22,9 @@
             position: absolute;
             top:-2px;
             left:100px;
-            height: 20px;
+            height: 12px;
             width: 4px;
-            background-color: red;
+            background-color: @rangecolor;
             cursor: pointer;
 
             u{
@@ -40,9 +40,9 @@
  
         span{
             position: absolute;
-            height: 16px;
+            height: 8px;
             left: 3px;
-            background-color: rgb(4, 0, 255);
+            background-color: @rangecolor;
         }
     }
     .scaleline{
@@ -60,7 +60,7 @@
         float: left;
         width: 1px;
         height: 6px;
-        background-color: orange;
+        background-color: @rangecolor;
 
 
         &.big{

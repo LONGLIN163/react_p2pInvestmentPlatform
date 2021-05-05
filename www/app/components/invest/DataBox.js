@@ -58,9 +58,9 @@ class DataBox extends React.Component{
 			<div className="databox">
 				<hr/>
 				<br/>
-				search result : {this.props.data.length}
+				<b className="searchresult">Search result : {this.props.data.length}</b>
 				<div className="text-right"> 
-					<a onClick={()=>{this.setSetTableBoxShow(true)}}><b>Set table colums</b></a>
+					<a onClick={()=>{this.setSetTableBoxShow(true)}}><b className="btn btn-success">Set table colums</b></a>
 					{this.showSetTableBox()}
 				</div>
 				<table>

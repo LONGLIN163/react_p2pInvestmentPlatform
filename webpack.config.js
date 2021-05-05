@@ -6,7 +6,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "./www/dist"),
         //*****developement*** */
-        //publicPath: '/temporary/',
+        publicPath: '/temporary/',
         filename: 'bundle.js'
     },
     module: { //mount all needed loaders here
@@ -33,5 +33,5 @@ module.exports = {
         // }
       ]
     },
-    watch:true
+    //watch:true
 };
