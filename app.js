@@ -50,6 +50,8 @@ app.post('/api' ,function(req,res){
 
 app.use(express.static("www"));
 
-app.listen(3000);
+// app.listen(3000);
 
+// console.log("The app is running on server!")
+app.listen(process.env.PORT, '0.0.0.0');
 console.log("The app is running on server!")

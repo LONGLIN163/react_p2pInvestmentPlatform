@@ -6,7 +6,6 @@
   "scripts": {
     "heroku-prebuild": "npm install --only=dev",
     "start": "node app.js",
-    "dev": "webpack serve --content-base ./www --open",
     "build": "webpack"
   },
   "engines": {
