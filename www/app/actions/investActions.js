@@ -6,9 +6,9 @@ export const fetchInitFilter=()=>{return (dispatch)=>{
     })
 } }
 export const fetchData=()=>{return (dispatch)=>{
-    $.get("/api/data.json", function(data){
+    $.post("/api",{"filter":"[]"}, function(data){
         //console.log("data",data)
-        dispatch({"type":"FETCHDATA", data : data.results})
+        dispatch({"type":"FETCHDATA", data : data})
     })
 } }
 // export const addFilter=(title,v,nicktitle)=>{ 
@@ -31,6 +31,22 @@ export const addFilter=(title,v)=>{
         })
     }
 }
+// export const delFilter=(title)=>{ 
+//     return {"type":"DELFILTER",title}
+// }
 export const delFilter=(title)=>{ 
-    return {"type":"DELFILTER",title}
+    return (dispatch,getState)=>{
+		var currentFilters = getState().investReducer.currentFilters.filter(function(item){
+			return item.filterTitle != title;
+		})
+        $.ajax({
+            "url": "/api",
+            "data":{"filter":JSON.stringify(currentFilters)},//***********this is a big hole*************** */
+            "type":"post",
+            "traditional":true,
+            "success":function(data){
+                dispatch({"type":"DELFILTER",title,data})
+              }
+        })
+    }
 }

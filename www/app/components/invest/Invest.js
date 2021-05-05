@@ -140,7 +140,7 @@ class Invest extends React.Component{
 										// scaleLeft:this.props.filters.need.scaleLeft,
 										// scaleRight:this.props.filters.need.scaleRight,
 										min:0,
-										max:54000,
+										max:50000,
 										onpick:this.pickHandler.bind(this)
 									})
 								}
