@@ -21,17 +21,7 @@ module.exports = {
                     ]
                 }
             }
-        },
-        // {
-        //     test: /\.less$/i,
-        //     use: [
-        //         //***need to install all three***
-        //         "style-loader",
-        //         "css-loader",
-        //         "less-loader"
-        //     ],
-        // }
+        }
       ]
     },
-    watch:true
 };
