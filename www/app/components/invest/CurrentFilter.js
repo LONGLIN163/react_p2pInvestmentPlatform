@@ -15,9 +15,9 @@ class CurrentFilter extends React.Component{
 		var arr=[];
 		this.props.currentFilters.forEach((item,index)=>{
 			//console.log("v",item)
-			if(index!=0){
-				arr.push(<li key={arr.length} className="t"> & </li>)
-			}
+			// if(index!=0){
+			// 	arr.push(<li key={arr.length} className="t">  </li>)
+			// }
 			if(item.filterTitle=="schools" || item.filterTitle=="types"){
 				arr.push(<li 
 					key={arr.length}
