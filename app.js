@@ -53,5 +53,5 @@ app.use(express.static("www"));
 // app.listen(3000);
 
 // console.log("The app is running on server!")
-app.listen(process.env.PORT, '0.0.0.0');
-console.log("The app is running on server!")
+app.listen(process.env.PORT || 3000, 
+	() => console.log("Server is running..."));
